@@ -22,7 +22,7 @@ function Price() {
     }, [price])
 
     return (
-        <div>
+        <div style={{ textAlign: 'center', borderStyle: 'groove', padding: '10px' }}>
             <h2>Boligens pris</h2>
             <h1 style={{ color: '#FF585D', fontWeight: 'bold' }}>kr. {price},-</h1>
             <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: '#FF585D' }}>

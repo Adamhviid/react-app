@@ -4,6 +4,7 @@ import Price from './components/Price'
 import Header from './components/Header';
 import About from './components/About';
 import Image from './components/Image';
+import PropertyData from './components/PropertyData';
 
 function App() {
   return (
@@ -13,11 +14,14 @@ function App() {
         <Grid item md={12}>
           <Image />
         </Grid>
-        <Grid item md={12} style={{ textAlign: 'center', borderStyle: 'groove' }}>
+        <Grid item md={12}>
           <Price />
         </Grid>
         <Grid item md={6} xs={12} style={{ textAlign: 'right' }}>
           <About />
+        </Grid>
+        <Grid item md={6} xs={12} style={{ textAlign: 'right' }}>
+          <PropertyData />
         </Grid>
       </Grid>
     </div>
