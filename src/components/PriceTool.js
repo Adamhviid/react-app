@@ -36,14 +36,14 @@ const PriceTool = () => {
 
   return (
     <div>
-      <Typography className={classes.infoBoxHeader} variant="h4" component="h1" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
+      <Typography variant="h" component="h" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
         {open ?
           <>{('Hjælp til at prissætte din bolig')} <ExpandLessIcon fontSize="large" /></> :
           <>{('Hjælp til at prissætte din bolig')} <ExpandMoreIcon fontSize="large" /></>
         }
       </Typography>
       <Collapse in={open} style={{ borderStyle: 'groove', padding: '10px' }}>
-        <Grid container spacing={6}>
+        {/* <Grid container spacing={6}>
           <Grid item xs={6}>
             <Grid item xs={12}>
               <Typography className={classes.subHeader}>
@@ -104,7 +104,7 @@ const PriceTool = () => {
               </Typography>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Collapse>
     </div>
   )

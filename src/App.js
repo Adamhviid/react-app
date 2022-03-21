@@ -6,15 +6,18 @@ import Header from './components/Header';
 import About from './components/About';
 import Image from './components/Image';
 import PropertyData from './components/PropertyData';
-
+import Weather from './components/Weather';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <Header />
-      <Grid container spacing={6} style={{textal:'center'}}>
-        <Grid item md={12}>
+      <Grid container spacing={6} style={{ textal: 'center', padding: '50px' }}>
+        <Grid item md={10}>
           <Image />
+        </Grid>
+        <Grid item md={2} style={{ textAlign: 'center' }}>
+          <Weather />
         </Grid>
         <Grid item md={12}>
           <Price />
