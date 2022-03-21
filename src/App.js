@@ -10,21 +10,21 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Grid container spacing={6}>
+      <Grid container spacing={6} style={{textal:'center'}}>
         <Grid item md={12}>
           <Image />
         </Grid>
         <Grid item md={12}>
           <Price />
         </Grid>
-        <Grid item md={6} xs={12} style={{ textAlign: 'right' }}>
+        <Grid item md={6} xs={12}>
           <About />
         </Grid>
-        <Grid item md={6} xs={12} style={{ textAlign: 'right' }}>
+        <Grid item md={6} xs={12}>
           <PropertyData />
         </Grid>
       </Grid>
-    </div>
+    </div >
   );
 }
 

@@ -3,7 +3,7 @@ import jpeg from './house.jpeg'
 
 function Image() {
   return (
-    <div>
+    <div style={{textAlign:'center'}}>
       <img src={jpeg} width="80%" height="auto"></img>
     </div>
   )
