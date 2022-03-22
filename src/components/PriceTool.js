@@ -43,6 +43,12 @@ const PriceTool = () => {
         }
       </Typography>
       <Collapse in={open} style={{ borderStyle: 'groove', padding: '10px' }}>
+
+        <Typography>
+          tekst om at hjælpe med at sætte prisen :)
+        </Typography>
+
+
         {/* <Grid container spacing={6}>
           <Grid item xs={6}>
             <Grid item xs={12}>

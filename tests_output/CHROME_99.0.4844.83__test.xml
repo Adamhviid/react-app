@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="4">
+
+  <testsuite name="test"
+    errors="0" failures="0" hostname="" id="" package="test" skipped="0"
+    tests="4" time="33.74" timestamp="">
+  
+    <testcase name="weather card city is correct" classname="test" time="8.634" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="change price button" classname="test" time="8.852" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="change information form" classname="test" time="10.18" assertions="3">
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Click collapse" classname="test" time="6.066" assertions="2">
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>

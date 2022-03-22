@@ -42,4 +42,15 @@ describe('test environment', function() {
       .assert.containsText('/html/body/div/div/div/div[5]/div/div/p', description)
       .end();
   });
+
+  it('Click collapse', function(browser) {
+    const element = '/html/body/div[1]/div/div/div[4]/div/h'
+    browser
+      .url(url)
+      .useXpath()
+      .waitForElementVisible(element)
+      .click('/html/body/div[1]/div/div/div[4]/div/h')
+      .assert.containsText('/html/body/div[1]/div/div/div[4]/div/div/div/div/p', 'tekst om at hjælpe med at sætte prisen :)')
+      .end();
+  });
 });

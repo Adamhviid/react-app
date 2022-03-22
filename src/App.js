@@ -13,10 +13,10 @@ function App() {
     <div className="App" >
       <Header />
       <Grid container spacing={6} style={{ textal: 'center', padding: '50px' }}>
-        <Grid item md={10}>
+        <Grid item md={9}>
           <Image />
         </Grid>
-        <Grid item md={2} style={{ textAlign: 'center' }}>
+        <Grid item md={3} style={{ textAlign: 'center' }}>
           <Weather />
         </Grid>
         <Grid item md={12}>
