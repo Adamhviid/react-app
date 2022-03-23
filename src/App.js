@@ -13,11 +13,11 @@ function App() {
     <div className="App" >
       <Header />
       <Grid container spacing={6} style={{ textal: 'center', padding: '50px' }}>
-        <Grid item xs={12}>
+        <Grid item xs={9}>
           <Carousel />
         </Grid>
         <Grid item md={3} xs={12} >
-
+          <PropertyData />
         </Grid>
         <Grid item xs={12}>
           <Price />
@@ -29,7 +29,7 @@ function App() {
           <About />
         </Grid>
         <Grid item md={4} xs={12}>
-          <PropertyData />
+
         </Grid>
         <Grid item md={4} xs={12}>
           <Weather />

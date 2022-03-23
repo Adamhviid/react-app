@@ -7,16 +7,18 @@ import house from '../images/house.jpeg'
 import bathroom from '../images/bathroom.jpeg'
 import livingroom from '../images/livingroom.jpeg'
 import office from '../images/office.jpeg'
+import tv from '../images/tv.jpeg'
 
 const items = [
-  <div><img className="item" data-value="1" src={house} width="100%" height="auto"></img></div>,
-  <div><img className="item" data-value="2" src={bathroom} width="100%" height="auto"></img></div>,
-  <div><img className="item" data-value="3" src={livingroom} width="100%" height="auto"></img></div>,
-  <div><img className="item" data-value="4" src={office} width="100%" height="auto"></img></div>
+  <img className="item" data-value="1" src={house} width="100%"></img>,
+  <img className="item" data-value="2" src={bathroom} width="100%" ></img>,
+  <img className="item" data-value="3" src={livingroom} width="100%" ></img>,
+  <img className="item" data-value="4" src={office} width="100%" ></img>,
+  <img className="item" data-value="5" src={tv} width="100%" ></img>
 ];
 const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
   return items.map((item, i) => (
-    <div className="thumb" onClick={() => (setThumbIndex(i), setThumbAnimation(true))}>
+    <div className="thumb" style={{ width: '300px', height: 'auto', paddingRight: '50px' }} onClick={() => (setThumbIndex(i), setThumbAnimation(true))}>
       {item}
     </div>
   ));
@@ -68,38 +70,35 @@ const Carousel = () => {
   };
 
   return (
-    <AliceCarousel
-      activeIndex={mainIndex}
-      animationType="fadeout"
-      autoWidth
-      animationDuration={800}
-      disableDotsControls
-      disableButtonsControls
-      infinite
-      items={items}
-      mouseTracking={!thumbAnimation}
-      onSlideChange={syncMainBeforeChange}
-      onSlideChanged={syncMainAfterChange}
-      touchTracking={!thumbAnimation}
-    />,
-    <div className="thumbs">
+    <div style={{ width: '100%' }}>
       <AliceCarousel
-        activeIndex={thumbIndex}
-        autoWidth
+        activeIndex={mainIndex}
+        animationType="fadeout"
+        animationDuration={800}
         disableDotsControls
         disableButtonsControls
-        items={thumbs}
-        mouseTracking={false}
-        onSlideChanged={syncThumbs}
-        touchTracking={!mainAnimation}
+        infinite
+        items={items}
+        mouseTracking={!thumbAnimation}
+        onSlideChange={syncMainBeforeChange}
+        onSlideChanged={syncMainAfterChange}
+        touchTracking={!thumbAnimation}
       />
-      <div className="b-refs-buttons" style={{ textAlign: 'center' }}>
+      <div className="thumbs" style={{ textAlign: 'center', padding: '30px' }}>
+        <AliceCarousel
+          activeIndex={thumbIndex}
+          autoWidth
+          disableButtonsControls
+          items={thumbs}
+          mouseTracking={false}
+          onSlideChanged={syncThumbs}
+          touchTracking={!mainAnimation}
+        />
         <Button variant="contained" style={{ backgroundColor: '#FF585D' }} onClick={slidePrev}>Prev</Button>
         <Button variant="contained" style={{ backgroundColor: '#FF585D' }} onClick={slideNext}>Next</Button>
       </div>
-    </div>
+    </div >
   )
 }
-
 
 export default Carousel
