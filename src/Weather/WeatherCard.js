@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, CardContent, Typography } from '@mui/material';
 import ThermostatOutlinedIcon from '@mui/icons-material/ThermostatOutlined';
-import InfoBox from './InfoBox';
+import InfoBox from '../Layout/InfoBox'
 
 function WeatherCard({ data }) {
   return (

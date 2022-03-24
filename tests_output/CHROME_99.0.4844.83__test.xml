@@ -1,38 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="0"
-            tests="4">
+            failures="1"
+            tests="1">
 
   <testsuite name="test"
-    errors="0" failures="0" hostname="" id="" package="test" skipped="0"
-    tests="4" time="32.58" timestamp="">
+    errors="0" failures="1" hostname="" id="" package="test" skipped="3"
+    tests="1" time="8.245" timestamp="">
   
-    <testcase name="weather card city is correct" classname="test" time="7.136" assertions="2">
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="change price button" classname="test" time="9.082" assertions="2">
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="change information form" classname="test" time="10.16" assertions="3">
-
-    
-
-    
-
-    
-    </testcase>
-  
-    <testcase name="Click collapse" classname="test" time="6.198" assertions="2">
-
-    
+    <testcase name="weather card city is correct" classname="test" time="8.245" assertions="1">  <failure message="Timed out while waiting for element &lt;/html/body/div/div/div/div[2]/div/div/div/h2&gt; to be present for 5000 milliseconds. - expected &#34;visible&#34; but got: &#34;not found&#34; (5193ms)">    at DescribeInstance.&lt;anonymous&gt; (/Users/adamkanstruphviid/my-app/tests/test.js:10:8)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)</failure>
 
     
     </testcase>
@@ -42,6 +18,23 @@
 
     
 
+  
+    
+    <testcase
+      name="change price button" classname="test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="change information form" classname="test">
+      <skipped />
+    </testcase>
+    
+    <testcase
+      name="Click collapse" classname="test">
+      <skipped />
+    </testcase>
+    
   
   </testsuite>
 </testsuites>

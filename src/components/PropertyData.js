@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid, Typography } from '@mui/material'
-import InfoBox from './InfoBox'
+import InfoBox from '../Layout/InfoBox'
 
 function PropertyData() {
   return (

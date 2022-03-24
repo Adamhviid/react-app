@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Grid } from '@mui/material';
-import InfoBox from './InfoBox';
+import InfoBox from '../Layout/InfoBox'
 
 const useStyles = makeStyles(theme => ({
   Button: {

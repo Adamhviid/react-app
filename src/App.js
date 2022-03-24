@@ -4,9 +4,9 @@ import Price from './components/Price'
 import PriceTool from './components/PriceTool';
 import Header from './components/Header';
 import About from './components/About';
-import Image from './components/Image';
+import ImageCarousel from './ImageSection/ImageCarousel';
 import PropertyData from './components/PropertyData';
-import Weather from './components/Weather';
+import Weather from './Weather/Weather';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Header />
       <Grid container spacing={6} style={{ padding: '50px' }}>
         <Grid item xs={12}>
-          <Image />
+          <ImageCarousel />
         </Grid>
         <Grid item xs={12}>
           <Price />

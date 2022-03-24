@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Button, Grid } from '@mui/material';
-import LikeImage from './LikeImage';
+import LikeImage from '../ImageSection/LikeIcon/LikeIcon';
 
-import house from '../images/house.jpeg'
-import bathroom from '../images/bathroom.jpeg'
-import livingroom from '../images/livingroom.jpeg'
-import office from '../images/office.jpeg'
-import tv from '../images/tv.jpeg'
+import house from '../HouseStockImages/house.jpeg'
+import bathroom from '../HouseStockImages/bathroom.jpeg'
+import livingroom from '../HouseStockImages/livingroom.jpeg'
+import office from '../HouseStockImages/office.jpeg'
+import tv from '../HouseStockImages/tv.jpeg'
 
 const items = [
   <img className="item" data-value="1" src={house} width="100%"></img>,

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { TextField, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
-import InfoBox from './InfoBox';
+import InfoBox from '../Layout/InfoBox'
 
 function About() {
 
