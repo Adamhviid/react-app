@@ -36,7 +36,7 @@ const PriceTool = () => {
 
   return (
     <div>
-      <Typography variant="h" component="h" onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
+      <Typography onClick={toggleCollapse} style={{ cursor: 'pointer' }}>
         {open ?
           <>{('Hjælp til at prissætte din bolig')} <ExpandLessIcon fontSize="large" /></> :
           <>{('Hjælp til at prissætte din bolig')} <ExpandMoreIcon fontSize="large" /></>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
+import LikeImage from './LikeImage';
 
 import house from '../images/house.jpeg'
 import bathroom from '../images/bathroom.jpeg'
@@ -18,13 +19,21 @@ const items = [
 ];
 const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
   return items.map((item, i) => (
-    <div className="thumb" style={{ width: '300px', height: 'auto', paddingRight: '50px' }} onClick={() => (setThumbIndex(i), setThumbAnimation(true))}>
-      {item}
-    </div>
+    <LikeImage
+      cover={false}
+      onClick={() => (console.log("Liked: " + { item }))}
+    >
+      <div className="thumb"
+        style={{ width: '300px', height: 'auto', paddingRight: '50px', paddingLeft: '50px' }}
+        onClick={() => (setThumbIndex(i), setThumbAnimation(true))}
+      >
+        {item}
+      </div>
+    </LikeImage>
   ));
 };
 
-const Carousel = () => {
+const Image = () => {
   const [mainIndex, setMainIndex] = useState(0);
   const [mainAnimation, setMainAnimation] = useState(false);
   const [thumbIndex, setThumbIndex] = useState(0);
@@ -70,35 +79,40 @@ const Carousel = () => {
   };
 
   return (
-    <div style={{ width: '100%' }}>
-      <AliceCarousel
-        activeIndex={mainIndex}
-        animationType="fadeout"
-        animationDuration={800}
-        disableDotsControls
-        disableButtonsControls
-        infinite
-        items={items}
-        mouseTracking={!thumbAnimation}
-        onSlideChange={syncMainBeforeChange}
-        onSlideChanged={syncMainAfterChange}
-        touchTracking={!thumbAnimation}
-      />
-      <div className="thumbs" style={{ textAlign: 'center', padding: '30px' }}>
+    <div style={{ width: '100%', height: 'auto', textAlign: 'center' }}>
+      <Grid justifyContent="center" alignItems="center">
         <AliceCarousel
-          activeIndex={thumbIndex}
-          autoWidth
+          activeIndex={mainIndex}
+          animationType="fadeout"
+          animationDuration={800}
+          disableDotsControls
           disableButtonsControls
-          items={thumbs}
-          mouseTracking={false}
-          onSlideChanged={syncThumbs}
-          touchTracking={!mainAnimation}
+          infinite
+          responsive={{ items: 1 }}
+          items={items}
+          mouseTracking={!thumbAnimation}
+          onSlideChange={syncMainBeforeChange}
+          onSlideChanged={syncMainAfterChange}
+          touchTracking={!thumbAnimation}
         />
-        <Button variant="contained" style={{ backgroundColor: '#FF585D' }} onClick={slidePrev}>Prev</Button>
-        <Button variant="contained" style={{ backgroundColor: '#FF585D' }} onClick={slideNext}>Next</Button>
-      </div>
+        <div className="thumbs" style={{ padding: '30px' }}>
+
+          <AliceCarousel
+            activeIndex={thumbIndex}
+            
+            disableButtonsControls
+            infinite
+            items={thumbs}
+            mouseTracking={false}
+            onSlideChanged={syncThumbs}
+            touchTracking={!mainAnimation}
+          />
+          <Button variant="contained" style={{ backgroundColor: '#FF585D' }} onClick={slidePrev}>Prev</Button>
+          <Button variant="contained" style={{ backgroundColor: '#FF585D' }} onClick={slideNext}>Next</Button>
+        </div>
+      </Grid>
     </div >
   )
 }
 
-export default Carousel
+export default Image
