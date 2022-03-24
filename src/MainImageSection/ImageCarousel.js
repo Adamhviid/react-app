@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Button, Grid } from '@mui/material';
-import LikeImage from '../ImageSection/LikeIcon/LikeIcon';
+import LikeIcon from './ImageLike/LikeIcon';
 
 import house from '../HouseStockImages/house.jpeg'
 import bathroom from '../HouseStockImages/bathroom.jpeg'
@@ -17,23 +17,20 @@ const items = [
   <img className="item" data-value="4" src={office} width="100%" ></img>,
   <img className="item" data-value="5" src={tv} width="100%" ></img>
 ];
+
 const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
   return items.map((item, i) => (
-    <LikeImage
-      cover={false}
-      onClick={() => (console.log("Liked: " + { item }))}
+    <div className="thumb"
+      style={{ width: '200px', height: '150px', padding: '20px' }}
+      onClick={() => (setThumbIndex(i), setThumbAnimation(true))}
     >
-      <div className="thumb"
-        style={{ width: '300px', height: 'auto', paddingRight: '50px', paddingLeft: '50px' }}
-        onClick={() => (setThumbIndex(i), setThumbAnimation(true))}
-      >
-        {item}
-      </div>
-    </LikeImage>
+      <LikeIcon/>
+      {item}
+    </div>
   ));
 };
 
-const Image = () => {
+const ImageCarousel = () => {
   const [mainIndex, setMainIndex] = useState(0);
   const [mainAnimation, setMainAnimation] = useState(false);
   const [thumbIndex, setThumbIndex] = useState(0);
@@ -79,7 +76,7 @@ const Image = () => {
   };
 
   return (
-    <div style={{ width: '100%', height: 'auto', textAlign: 'center' }}>
+    <div>
       <Grid justifyContent="center" alignItems="center">
         <AliceCarousel
           activeIndex={mainIndex}
@@ -95,13 +92,11 @@ const Image = () => {
           onSlideChanged={syncMainAfterChange}
           touchTracking={!thumbAnimation}
         />
-        <div className="thumbs" style={{ padding: '30px' }}>
-
+        <div className="thumbs" style={{ paddingTop: '30px', textAlign: 'center' }}>
           <AliceCarousel
             activeIndex={thumbIndex}
-            
+            autoWidth
             disableButtonsControls
-            infinite
             items={thumbs}
             mouseTracking={false}
             onSlideChanged={syncThumbs}
@@ -115,4 +110,4 @@ const Image = () => {
   )
 }
 
-export default Image
+export default ImageCarousel
