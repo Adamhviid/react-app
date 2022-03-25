@@ -40,7 +40,7 @@ function About() {
         <hr />
         <p>{description}</p>
       </InfoBox>
-      <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: '#FF585D' }}>
+      <Button variant="contained" onClick={handleClickOpen} style={{ background: '#FF585D', padding:'5px', color:'#fff'  }}>
         Ændr information
       </Button>
       <Dialog id="favDialog" open={open} onClose={handleClose}>
@@ -75,7 +75,7 @@ function About() {
             </Box>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} type='submit' variant="contained" style={{ float: 'right', backgroundColor: '#FF585D' }}>Gem</Button>
+            <Button onClick={handleClose} type='submit' variant="contained" style={{ background: '#FF585D', padding:'5px', color:'#fff'  }}>Gem</Button>
           </DialogActions>
         </InfoBox>
       </Dialog>

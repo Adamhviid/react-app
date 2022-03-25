@@ -5,9 +5,9 @@ import InfoBox from '../Layout/InfoBox'
 
 const useStyles = makeStyles(theme => ({
   Button: {
-    textAlign: 'center',
-    borderStyle: 'groove',
-    padding: '10px'
+    background: '#FF585D',
+    padding: '5px',
+    color: '#fff'
   },
 }));
 
@@ -43,12 +43,12 @@ function Price() {
             Boligens pris
           </Typography>
           <h1 style={{ color: '#FF585D', fontWeight: 'bold', fontSize: '3em' }}>kr. {price},-</h1>
-          <Button variant="contained" onClick={handleClickOpen} style={{ backgroundColor: '#FF585D', padding:'5px' }}>
+          <Button variant="contained" onClick={handleClickOpen} style={{ background: '#FF585D', padding: '5px', color: '#fff' }}>
             Ændre pris
           </Button>
           <Dialog id="favDialog" open={open} onClose={handleClose}>
-            <InfoBox>
-              <DialogTitle>Ændr prisen på din bolig</DialogTitle>
+            <InfoBox hasPadding>
+              <Button>X</Button><DialogTitle>Ændr prisen på din bolig</DialogTitle>
               <DialogContent>
                 <hr />
                 <TextField
@@ -63,7 +63,7 @@ function Price() {
                 />
               </DialogContent>
               <DialogActions>
-                <Button variant="contained" onClick={handleClose} style={{ background: '#FF585D' }}>Godkend</Button>
+                <Button variant="contained" onClick={handleClose} style={{ background: '#FF585D', padding: '5px', color: '#fff' }}>Godkend</Button>
               </DialogActions>
             </InfoBox>
           </Dialog>

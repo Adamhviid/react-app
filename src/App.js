@@ -5,7 +5,6 @@ import PriceTool from './components/PriceTool';
 import Header from './components/Header';
 import About from './components/About';
 import ImageCarousel from './MainImageSection/ImageCarousel';
-import Thumbnails from './MainImageSection/ImageLike/Thumbnails';
 import PropertyData from './components/PropertyData';
 import Weather from './Weather/Weather';
 
@@ -18,7 +17,6 @@ function App() {
           <ImageCarousel />
         </Grid>
         <Grid item xs={12} md={3}>
-          <Thumbnails />
         </Grid>
         <Grid item xs={12}>
           <Price />

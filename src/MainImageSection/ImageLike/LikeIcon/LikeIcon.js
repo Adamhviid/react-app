@@ -30,9 +30,9 @@ const LikeIcon = ({
       color="secondary"
       size="small"
       aria-label={isSelected ? 'remove from Like' : 'add to Like'}
-      /* onClick={isSelected ? removeLike : addToLike} */>
-      {/* {isSelected ? <LikeIconSelected /> : <LikeIconSelected />} */}
-    </Fab>
+      onClick={isSelected ? removeLike : addToLike}>
+      {isSelected ? <LikeIconSelected /> : <LikeIconSelected />}
+    </Fab >
   );
 };
 
