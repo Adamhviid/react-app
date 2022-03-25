@@ -17,6 +17,7 @@ function App() {
           <ImageCarousel />
         </Grid>
         <Grid item xs={12} md={3}>
+          <Weather />
         </Grid>
         <Grid item xs={12}>
           <Price />
@@ -31,7 +32,6 @@ function App() {
           <PropertyData />
         </Grid>
         <Grid item md={3} xs={12}>
-          <Weather />
         </Grid>
       </Grid>
     </div >

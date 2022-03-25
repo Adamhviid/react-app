@@ -4,15 +4,10 @@ import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, T
 import InfoBox from '../Layout/InfoBox'
 
 const useStyles = makeStyles(theme => ({
-  Button: {
-    background: '#FF585D',
-    padding: '5px',
-    color: '#fff'
-  },
 }));
 
 function Price() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [price, setPrice] = useState(() => {
     const saved = localStorage.getItem("price");
     const initialValue = JSON.parse(saved);
@@ -46,11 +41,13 @@ function Price() {
           <Button variant="contained" onClick={handleClickOpen} style={{ background: '#FF585D', padding: '5px', color: '#fff' }}>
             Ændre pris
           </Button>
-          <Dialog id="favDialog" open={open} onClose={handleClose}>
+          <Dialog open={open} onClose={handleClose}>
             <InfoBox hasPadding>
-              <Button>X</Button><DialogTitle>Ændr prisen på din bolig</DialogTitle>
-              <DialogContent>
+              <header>
+                <DialogTitle>Ændr prisen på din bolig</DialogTitle>
                 <hr />
+              </header>
+              <DialogContent>
                 <TextField
                   autoFocus
                   value={price}

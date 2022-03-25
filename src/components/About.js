@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { TextField, Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, Typography } from '@mui/material';
+import { TextField, Button, Typography } from '@mui/material';
 import InfoBox from '../Layout/InfoBox'
 
 function About() {
-
-  const [open, setOpen] = React.useState(false);
   const [name, setName] = useState(() => {
     const saved = localStorage.getItem("name");
     const initialValue = JSON.parse(saved);
@@ -16,13 +14,6 @@ function About() {
     return initialValue || "";
   })
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   useEffect(() => {
     localStorage.setItem("name", JSON.stringify(name));
@@ -30,56 +21,38 @@ function About() {
   }, [name, description]);
 
   return (
-    <div style={{ textAlign: 'right' }}>
+    <div>
       <Typography variant="h4" component="h1" style={{ fontWeight: 'bold', color: '#000' }}>
         Hej lidt om mig
       </Typography>
 
-      <InfoBox hasPadding>
-        <h2>{name}</h2>
-        <hr />
-        <p>{description}</p>
+      <InfoBox hasPadding >
+        <TextField
+          variant="outlined"
+          fullWidth
+          label="Dit fulde navn"
+          value={name}
+          onChange={({ target: { value } }) => {
+            setName(value);
+          }}
+          style={{paddingBottom:'20px'}}
+        />
+        
+        <TextField
+          variant="outlined"
+          fullWidth
+          label="Beskriv lidt om dig selv"
+          multiline
+          rows={10}
+          value={description}
+          onChange={({ target: { value } }) => {
+            setDescription(value);
+          }}
+        />
       </InfoBox>
-      <Button variant="contained" onClick={handleClickOpen} style={{ background: '#FF585D', padding:'5px', color:'#fff'  }}>
+      <Button variant="contained" style={{ background: '#FF585D', padding: '5px', marginTop: '10px', color: '#fff', float: 'right' }}>
         Ændr information
       </Button>
-      <Dialog id="favDialog" open={open} onClose={handleClose}>
-        <InfoBox hasPadding>
-          <DialogTitle>Ændr information</DialogTitle>
-          <DialogContent>
-            <Box
-              component="form"
-              noValidate
-              autoComplete="off"
-              width={500}
-              height={400}
-            >
-              <p>Dit fulde navn</p>
-              <TextField
-                fullWidth
-                value={name}
-                onChange={({ target: { value } }) => {
-                  setName(value);
-                }}
-              />
-              <p>Beskriv lidt om dig selv</p>
-              <TextField
-                fullWidth
-                multiline
-                rows={10}
-                value={description}
-                onChange={({ target: { value } }) => {
-                  setDescription(value);
-                }}
-              />
-            </Box>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} type='submit' variant="contained" style={{ background: '#FF585D', padding:'5px', color:'#fff'  }}>Gem</Button>
-          </DialogActions>
-        </InfoBox>
-      </Dialog>
-
     </div >
   )
 }

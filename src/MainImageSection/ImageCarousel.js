@@ -5,6 +5,7 @@ import { Button, Grid } from '@mui/material';
 /* import LikeIcon from './ImageLike/LikeIcon'; */
 import LikeIcon2 from './ImageLike/LikeIcon/LikeIcon2'
 import UseLike from './ImageLike/LikeIcon/UseLike';
+import InfoBox from '../Layout/InfoBox';
 
 import house from '../HouseStockImages/house.jpeg'
 import bathroom from '../HouseStockImages/bathroom.jpeg'
@@ -27,14 +28,17 @@ const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
       style={{ width: '250px', height: '200px', padding: '15px' }}
       onClick={() => (setThumbIndex(i), setThumbAnimation(true))}
     >
-      <LikeIcon2
-        variant="contained"
-        color="secondary"
-        onClick={() => (
-          <UseLike item={item} />
-        )}>
-        {item}
-      </LikeIcon2>
+
+      <InfoBox>
+        <LikeIcon2
+          variant="contained"
+          color="secondary"
+          onClick={() => (
+            <UseLike item={item} />
+          )}>
+          {item}
+        </LikeIcon2>
+      </InfoBox>
     </div >
   ));
 };
@@ -87,20 +91,22 @@ const ImageCarousel = () => {
   return (
     <div>
       <Grid justifyContent="center" alignItems="center">
-        <AliceCarousel
-          activeIndex={mainIndex}
-          animationType="fadeout"
-          animationDuration={800}
-          disableDotsControls
-          disableButtonsControls
-          infinite
-          responsive={{ items: 1 }}
-          items={items}
-          mouseTracking={!thumbAnimation}
-          onSlideChange={syncMainBeforeChange}
-          onSlideChanged={syncMainAfterChange}
-          touchTracking={!thumbAnimation}
-        />
+        <InfoBox>
+          <AliceCarousel
+            activeIndex={mainIndex}
+            animationType="fadeout"
+            animationDuration={800}
+            disableDotsControls
+            disableButtonsControls
+            infinite
+            responsive={{ items: 1 }}
+            items={items}
+            mouseTracking={!thumbAnimation}
+            onSlideChange={syncMainBeforeChange}
+            onSlideChanged={syncMainAfterChange}
+            touchTracking={!thumbAnimation}
+          />
+        </InfoBox>
         <div className="thumbs" style={{ paddingTop: '30px', textAlign: 'center' }}>
           <AliceCarousel
             activeIndex={thumbIndex}
