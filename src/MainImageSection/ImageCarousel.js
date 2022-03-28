@@ -23,12 +23,10 @@ const items = [
 
 const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
   return items.map((item, i) => (
-
     <div className="thumb"
-      style={{ width: '250px', height: '200px', padding: '15px' }}
+      style={{ width: '250px', padding: '45px' }}
       onClick={() => (setThumbIndex(i), setThumbAnimation(true))}
     >
-
       <InfoBox>
         <LikeIcon2
           variant="contained"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import Price from './components/Price'
-import PriceTool from './components/PriceTool';
+import Price from './PriceSection/Price'
+import PriceTool from './PriceToolSection/PriceTool';
 import Header from './components/Header';
 import About from './components/About';
 import ImageCarousel from './MainImageSection/ImageCarousel';

@@ -40,8 +40,4 @@ LikeIcon2.propTypes = {
 
 };
 
-LikeIcon2.defaultProps = {
-  cover: true,
-};
-
 export default LikeIcon2;

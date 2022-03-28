@@ -7,7 +7,6 @@ const UseLike = props => {
   } = props
   return (
     <div>
-      {console.log({item})}
     </div>
   )
 }
