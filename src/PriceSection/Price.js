@@ -1,11 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Grid } from '@mui/material';
+import { makeStyles } from '@material-ui/styles';
+import { Button, Typography, Grid } from '@mui/material';
 import InfoBox from '../Layout/InfoBox'
 import EditPriceDialog from './EditPriceDialog';
 
-import classes from './PriceSection.module.css'
+let useStyle = makeStyles({
+  infoboxTitle: {
+    fontWeight: "bold",
+    fontSize: "2.5em",
+  },
+  buttons: {
+    background: '#FF585D',
+    padding: '5px',
+    color: '#fff',
+  },
+  price: {
+    color: '#FF585D',
+    fontWeight: 'bold',
+    fontSize: '3.5em'
+  }
+})
 
 function Price() {
+  const classes = useStyle()
   const [showDialog, setShowDialog] = useState(false);
   const [price, setPrice] = useState(() => {
     const saved = localStorage.getItem("price");
@@ -31,16 +48,16 @@ function Price() {
       </p>
       <InfoBox hasPadding>
         <Grid style={{ textAlign: 'center' }}>
-          <Typography variant="h4" component="h1" style={{ fontWeight: 'bold', color: '#000' }}>
+          <Typography className={classes.infoboxTitle}>
             Boligens pris
           </Typography>
-          <h1 style={{ color: '#FF585D', fontWeight: 'bold', fontSize: '3em' }}>
+          <h1 className={classes.price}>
             kr. {price},-
           </h1>
           <Button
             variant="contained"
             onClick={() => { setShowDialog(true) }}
-            style={{ background: '#FF585D', padding: '5px', color: '#fff' }}
+            className={classes.buttons}
           >
             Ændre pris
           </Button>
