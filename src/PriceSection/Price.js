@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Grid } from '@mui/material';
 import InfoBox from '../Layout/InfoBox'
+import EditPriceDialog from './EditPriceDialog';
 
 import classes from './PriceSection.module.css'
 
 function Price() {
-  const [open, setOpen] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
   const [price, setPrice] = useState(() => {
     const saved = localStorage.getItem("price");
     const initialValue = JSON.parse(saved);
     return initialValue || "";
   })
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const confirm = () => {
+    const saved = localStorage.getItem("price");
+    const initialValue = JSON.parse(saved);
+    setPrice(initialValue)
+    setShowDialog(false)
+  }
 
   useEffect(() => {
     localStorage.setItem("price", JSON.stringify(price));
@@ -34,36 +34,25 @@ function Price() {
           <Typography variant="h4" component="h1" style={{ fontWeight: 'bold', color: '#000' }}>
             Boligens pris
           </Typography>
-          <h1 style={{ color: '#FF585D', fontWeight: 'bold', fontSize: '3em' }}>kr. {price},-</h1>
-          <Button variant="contained" onClick={handleClickOpen} style={{ background: '#FF585D', padding: '5px', color: '#fff' }}>
+          <h1 style={{ color: '#FF585D', fontWeight: 'bold', fontSize: '3em' }}>
+            kr. {price},-
+          </h1>
+          <Button
+            variant="contained"
+            onClick={() => { setShowDialog(true) }}
+            style={{ background: '#FF585D', padding: '5px', color: '#fff' }}
+          >
             Ændre pris
           </Button>
-          <Dialog open={open} onClose={handleClose}>
-            <InfoBox hasPadding>
-              <header>
-                <DialogTitle>Ændr prisen på din bolig</DialogTitle>
-                <hr />
-              </header>
-              <DialogContent>
-                <TextField
-                  autoFocus
-                  value={price}
-                  margin="dense"
-                  type="text"
-                  fullWidth
-                  onChange={({ target: { value } }) => {
-                    setPrice(value);
-                  }}
-                />
-              </DialogContent>
-              <DialogActions>
-                <Button variant="contained" onClick={handleClose} style={{ background: '#FF585D', padding: '5px', color: '#fff' }}>Godkend</Button>
-              </DialogActions>
-            </InfoBox>
-          </Dialog>
+
+          <EditPriceDialog
+            show={showDialog}
+            price={price}
+            confirm={confirm}
+          />
         </Grid>
-      </InfoBox >
-    </div >
+      </InfoBox>
+    </div>
   )
 }
 
