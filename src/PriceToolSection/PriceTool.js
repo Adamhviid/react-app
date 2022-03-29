@@ -7,14 +7,14 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import InfoBox from '../Layout/InfoBox'
 import HouseCards from './HouseCards';
 
-import house from '../HouseStockImages/house.jpeg'
-import bathroom from '../HouseStockImages/bathroom.jpeg'
-import livingroom from '../HouseStockImages/livingroom.jpeg'
-import office from '../HouseStockImages/office.jpeg'
-import tv from '../HouseStockImages/tv.jpeg'
+import house from '../MainImageSection/HouseStockImages/house.jpeg'
+import bathroom from '../MainImageSection/HouseStockImages/bathroom.jpeg'
+import livingroom from '../MainImageSection/HouseStockImages/livingroom.jpeg'
+import office from '../MainImageSection/HouseStockImages/office.jpeg'
+import tv from '../MainImageSection/HouseStockImages/tv.jpeg'
 
 const items = [
-  <img className="item" src={house} width="100%"></img>,
+<img className="item" src={house} width="100%"></img>,
   <img className="item" src={bathroom} width="100%" ></img>,
   <img className="item" src={livingroom} width="100%" ></img>,
   <img className="item" src={office} width="100%" ></img>,

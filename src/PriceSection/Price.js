@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Button, TextField, Dialog, DialogActions, DialogContent, DialogTitle, Typography, Grid } from '@mui/material';
 import InfoBox from '../Layout/InfoBox'
 
-const useStyles = makeStyles(theme => ({
-}));
+import classes from './PriceSection.module.css'
 
 function Price() {
   const [open, setOpen] = useState(false);
@@ -13,7 +11,6 @@ function Price() {
     const initialValue = JSON.parse(saved);
     return initialValue || "";
   })
-  const classes = useStyles();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,9 +26,9 @@ function Price() {
 
   return (
     <div>
-      <Typography variant="h4" component="h1" style={{ fontWeight: 'bold', color: '#000' }}>
+      <p className={classes.infoboxTitle}>
         Sæt prisen
-      </Typography>
+      </p>
       <InfoBox hasPadding>
         <Grid style={{ textAlign: 'center' }}>
           <Typography variant="h4" component="h1" style={{ fontWeight: 'bold', color: '#000' }}>

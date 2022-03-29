@@ -7,6 +7,7 @@ import About from './components/About';
 import ImageCarousel from './MainImageSection/ImageCarousel';
 import PropertyData from './components/PropertyData';
 import Weather from './Weather/Weather';
+import LikedImage from './MainImageSection/ImageLike/LikedImage';
 
 function App() {
   return (

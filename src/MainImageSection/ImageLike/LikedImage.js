@@ -3,7 +3,14 @@ import PropTypes from 'prop-types'
 
 const LikedImage = props => {
   return (
-    <div>LikedImage</div>
+    <div>
+      <p>
+        LikedImages
+      </p>
+      <div>
+        {props.item}
+      </div>
+    </div>
   )
 }
 

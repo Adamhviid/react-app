@@ -6,12 +6,13 @@ import { Button, Grid } from '@mui/material';
 import LikeIcon2 from './ImageLike/LikeIcon/LikeIcon2'
 import UseLike from './ImageLike/LikeIcon/UseLike';
 import InfoBox from '../Layout/InfoBox';
+import LikedImage from './ImageLike/LikedImage';
 
-import house from '../HouseStockImages/house.jpeg'
-import bathroom from '../HouseStockImages/bathroom.jpeg'
-import livingroom from '../HouseStockImages/livingroom.jpeg'
-import office from '../HouseStockImages/office.jpeg'
-import tv from '../HouseStockImages/tv.jpeg'
+import house from './HouseStockImages/house.jpeg'
+import bathroom from './HouseStockImages/bathroom.jpeg'
+import livingroom from './HouseStockImages/livingroom.jpeg'
+import office from './HouseStockImages/office.jpeg'
+import tv from './HouseStockImages/tv.jpeg'
 
 const items = [
   <img className="item" src={house} width="100%"></img>,
@@ -119,6 +120,7 @@ const ImageCarousel = () => {
           <Button variant="contained" style={{ background: '#FF585D', padding: '5px', color: '#fff' }} onClick={slideNext}>Next</Button>
         </div>
       </Grid>
+      <LikedImage />
     </div >
   )
 }
