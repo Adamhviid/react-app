@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/styles';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Button, Grid } from '@mui/material';
@@ -14,12 +15,24 @@ import livingroom from './HouseStockImages/livingroom.jpeg'
 import office from './HouseStockImages/office.jpeg'
 import tv from './HouseStockImages/tv.jpeg'
 
+const useStyle = makeStyles({
+  thumbs: {
+    paddingTop: '30px',
+    textAlign: 'center'
+  },
+  buttons: {
+    background: '#FF585D',
+    padding: '5px',
+    color: '#fff'
+  }
+})
+
 const items = [
-  <img className="item" src={house} width="100%"></img>,
-  <img className="item" src={bathroom} width="100%" ></img>,
-  <img className="item" src={livingroom} width="100%" ></img>,
-  <img className="item" src={office} width="100%" ></img>,
-  <img className="item" src={tv} width="100%" ></img>
+  <img className="item" src={house} style={{ width: '100%', maxWidth: '1200px' }}></img>,
+  <img className="item" src={bathroom} style={{ width: '100%', maxWidth: '1200px' }}></img>,
+  <img className="item" src={livingroom} style={{ width: '100%', maxWidth: '1200px' }}></img>,
+  <img className="item" src={office} style={{ width: '100%', maxWidth: '1200px' }}></img>,
+  <img className="item" src={tv} style={{ width: '100%', maxWidth: '1200px' }}></img>
 ];
 
 const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
@@ -43,6 +56,7 @@ const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
 };
 
 const ImageCarousel = () => {
+  const classes = useStyle()
   const [mainIndex, setMainIndex] = useState(0);
   const [mainAnimation, setMainAnimation] = useState(false);
   const [thumbIndex, setThumbIndex] = useState(0);
@@ -86,7 +100,7 @@ const ImageCarousel = () => {
       setMainIndex(e.item);
     }
   };
-  
+
   return (
     <div>
       <Grid justifyContent="center" alignItems="center">
@@ -106,7 +120,7 @@ const ImageCarousel = () => {
             touchTracking={!thumbAnimation}
           />
         </InfoBox>
-        <div className="thumbs" style={{ paddingTop: '30px', textAlign: 'center' }}>
+        <div className={classes.thumbs}>
           <AliceCarousel
             activeIndex={thumbIndex}
             autoWidth
@@ -116,8 +130,8 @@ const ImageCarousel = () => {
             onSlideChanged={syncThumbs}
             touchTracking={!mainAnimation}
           />
-          <Button variant="contained" style={{ background: '#FF585D', padding: '5px', color: '#fff' }} onClick={slidePrev}>Prev</Button>
-          <Button variant="contained" style={{ background: '#FF585D', padding: '5px', color: '#fff' }} onClick={slideNext}>Next</Button>
+          <Button variant="contained" className={classes.buttons} onClick={slidePrev}>Prev</Button>
+          <Button variant="contained" className={classes.buttons} onClick={slideNext}>Next</Button>
         </div>
       </Grid>
       <LikedImage />

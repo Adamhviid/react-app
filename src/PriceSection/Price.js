@@ -4,7 +4,7 @@ import { Button, Typography, Grid } from '@mui/material';
 import InfoBox from '../Layout/InfoBox'
 import EditPriceDialog from './EditPriceDialog';
 
-let useStyle = makeStyles({
+const useStyle = makeStyles({
   infoboxHeader: {
     fontWeight: "bold",
     paddingTop: '2.5rem',

@@ -9,17 +9,22 @@ import ImageCarousel from './MainImageSection/ImageCarousel';
 import PropertyData from './components/PropertyData';
 import Weather from './Weather/Weather';
 import LikedImage from './MainImageSection/ImageLike/LikedImage';
+import Address from './components/Address';
 
 function App() {
   return (
     <div className="App" >
       <Header />
-      <Grid container spacing={3}>
+      <Grid container spacing={3} style={{ paddingTop: '15px' }}>
+        <Grid item xs={12} md={9}>
+          <Address />
+        </Grid>
         <Grid item xs={12} md={9}>
           <ImageCarousel />
         </Grid>
         <Grid item xs={12} md={3}>
           <Weather />
+          <PropertyData />
         </Grid>
         <Grid item xs={12}>
           <Price />
@@ -31,7 +36,7 @@ function App() {
           <About />
         </Grid>
         <Grid item md={3} xs={12}>
-          <PropertyData />
+
         </Grid>
         <Grid item md={3} xs={12}>
         </Grid>
