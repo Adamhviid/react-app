@@ -46,6 +46,12 @@ const useStyles = makeStyles(theme => ({
   },
   price: {
     fontWeight: 'bold'
+  },
+  card: {
+    width: '200px',
+    height: '250px',
+    padding: '10px',
+    margin: '10px'
   }
 }));
 
@@ -60,7 +66,7 @@ const HouseCards = props => {
 
   return (
     <div>
-      <Card style={{ width: '200px', height: '250px', padding:'10px' }}>
+      <Card className={classes.card}>
         <CardMedia>
           {image}
         </CardMedia>

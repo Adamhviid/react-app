@@ -3,7 +3,7 @@ import { Grid } from '@mui/material'
 
 function Header() {
     return (
-        <header>
+        <div className="header">
             <Grid container spacing={3} style={{ textAlign: 'center', background: '#FF585D' }}>
                 <Grid item md={4}>
                     Logo her
@@ -15,7 +15,7 @@ function Header() {
                     Dropdown her
                 </Grid>
             </Grid>
-        </header>
+        </div>
     )
 }
 

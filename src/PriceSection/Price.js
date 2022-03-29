@@ -5,8 +5,9 @@ import InfoBox from '../Layout/InfoBox'
 import EditPriceDialog from './EditPriceDialog';
 
 let useStyle = makeStyles({
-  infoboxTitle: {
+  infoboxHeader: {
     fontWeight: "bold",
+    paddingTop: '2.5rem',
     fontSize: "2.5em",
   },
   buttons: {
@@ -39,12 +40,12 @@ function Price() {
 
   return (
     <div>
-      <p className={classes.infoboxTitle}>
+      <p className={classes.infoboxHeader}>
         Sæt prisen
       </p>
       <InfoBox hasPadding>
         <Grid style={{ textAlign: 'center' }}>
-          <Typography className={classes.infoboxTitle}>
+          <Typography className={classes.infoboxHeader}>
             Boligens pris
           </Typography>
           <h1 className={classes.price}>

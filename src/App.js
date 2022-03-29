@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
+import './App.css';
 import Price from './PriceSection/Price'
 import PriceTool from './PriceToolSection/PriceTool';
 import Header from './components/Header';
@@ -13,7 +14,7 @@ function App() {
   return (
     <div className="App" >
       <Header />
-      <Grid container spacing={6} style={{ padding: '50px' }}>
+      <Grid container spacing={3}>
         <Grid item xs={12} md={9}>
           <ImageCarousel />
         </Grid>

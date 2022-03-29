@@ -22,11 +22,10 @@ const items = [
 ];
 
 const useStyles = makeStyles({
-  infoBoxHeader: {
-    fontWeight: 'bold',
-    color: '#000',
-    lineHeight: 2,
-    paddingTop: '2rem',
+  infoboxHeader: {
+    fontWeight: "bold",
+    paddingTop: '2.5rem',
+    fontSize: "2.5em",
   },
   subHeader: {
     color: '#000',
@@ -48,23 +47,14 @@ const PriceTool = () => {
     setIsOpen((current) => !current);
   };
 
-  const loop = () => {
-    items.forEach(item =>
-      <HouseCards
-        image={item}
-        text={"Sankt thomas alle 1"}
-        price={"200.000kr"}
-      />)
-  }
-
   return (
     <div>
-      <Typography onClick={toggleCollapse} variant="h4" component="h1" style={{ fontWeight: 'bold', color: '#000', cursor: 'pointer' }}>
+      <p className={classes.infoboxHeader} onClick={toggleCollapse}>
         {open ?
           <>{('Hjælp til at prissætte din bolig')} <ExpandLessIcon fontSize="large" /></> :
           <>{('Hjælp til at prissætte din bolig')} <ExpandMoreIcon fontSize="large" /></>
         }
-      </Typography>
+      </p>
       <Collapse in={open}>
         <InfoBox hasPadding>
           <Grid container spacing={3}>
