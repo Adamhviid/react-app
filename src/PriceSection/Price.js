@@ -37,10 +37,6 @@ function Price() {
     setShowDialog(false)
   }
 
-  useEffect(() => {
-    localStorage.setItem("price", JSON.stringify(price));
-  }, [price])
-
   return (
     <div>
       <p className={classes.infoboxTitle}>

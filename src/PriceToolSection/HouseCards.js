@@ -15,22 +15,12 @@ const useStyles = makeStyles(theme => ({
     borderRadius: theme.spacing(1),
     overflow: 'hidden'
   },
-  cardActionArea: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100%'
-  },
   cardMedia: {
     position: 'relative',
     width: '100%',
     paddingBottom: '50%',
     borderRadius: theme.spacing(1),
     overflow: 'hidden'
-  },
-  favoriteIcon: {
-    position: 'absolute',
-    bottom: theme.spacing(1),
-    right: theme.spacing(1)
   },
   cardImage: {
     width: '100%',
@@ -54,22 +44,8 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     marginTop: theme.spacing(1)
   },
-  address: {
-    marginBottom: theme.spacing(1)
-  },
   price: {
     fontWeight: 'bold'
-  },
-  flexRow: {
-    marginTop: 'auto',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  },
-  link: {
-    '&:hover': {
-      textDecoration: 'none'
-    }
   }
 }));
 
@@ -92,7 +68,7 @@ const HouseCards = props => {
           <Typography
             variant="body1"
             component="h4"
-            className={classes.address}
+            className={classes.title}
           >
             <TextTruncate
               line={2}

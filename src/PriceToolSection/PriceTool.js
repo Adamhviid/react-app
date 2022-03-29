@@ -14,7 +14,7 @@ import office from '../MainImageSection/HouseStockImages/office.jpeg'
 import tv from '../MainImageSection/HouseStockImages/tv.jpeg'
 
 const items = [
-<img className="item" src={house} width="100%"></img>,
+  <img className="item" src={house} width="100%"></img>,
   <img className="item" src={bathroom} width="100%" ></img>,
   <img className="item" src={livingroom} width="100%" ></img>,
   <img className="item" src={office} width="100%" ></img>,
@@ -48,6 +48,15 @@ const PriceTool = () => {
     setIsOpen((current) => !current);
   };
 
+  const loop = () => {
+    items.forEach(item =>
+      <HouseCards
+        image={item}
+        text={"Sankt thomas alle 1"}
+        price={"200.000kr"}
+      />)
+  }
+
   return (
     <div>
       <Typography onClick={toggleCollapse} variant="h4" component="h1" style={{ fontWeight: 'bold', color: '#000', cursor: 'pointer' }}>
@@ -59,56 +68,30 @@ const PriceTool = () => {
       <Collapse in={open}>
         <InfoBox hasPadding>
           <Grid container spacing={3}>
-
-            <Grid item md={5}>
+            <Grid item md={6}>
               <Grid item md={12}>
                 <p>HEJ test</p>
               </Grid>
             </Grid>
-            <Grid item md={7}>
+            <Grid item md={6}>
               <p>Tidligere solgte boliger</p>
-              <Grid
-                container
-                justifyContent="center"
-                alignItems="center"
-                item md={12}>
-                <HouseCards
-                  image={items[0]}
-                  text={"Sankt thomas alle 1"}
-                  price={"200.000kr"}
-                />
-                <HouseCards
-                  image={items[1]}
-                  text={"Sankt thomas alle 2"}
-                  price={"330.995kr"}
-                />
-                <HouseCards
-                  image={items[2]}
-                  text={"Sankt thomas alle 3"}
-                  price={"1.000.000kr"}
-                />
+              <Grid container item md={12}>
+                {items.slice(0, 3).map(function (src, key) {
+                  return <HouseCards
+                    image={src}
+                    text={"Sankt thomas alle 2"}
+                    price={key} />
+                })}
               </Grid>
+
               <p>Nuværende boliger til salg</p>
-              <Grid
-                container
-                justifyContent="center"
-                alignItems="center"
-                item md={12}>
-                <HouseCards
-                  image={items[0]}
-                  text={"Sankt thomas alle 1"}
-                  price={"200.000kr"}
-                />
-                <HouseCards
-                  image={items[1]}
-                  text={"Sankt thomas alle 2"}
-                  price={"330.995kr"}
-                />
-                <HouseCards
-                  image={items[2]}
-                  text={"Sankt thomas alle 3"}
-                  price={"1.000.000kr"}
-                />
+              <Grid container item md={12}>
+                {items.slice(2, 5).map(function (src, key) {
+                  return <HouseCards
+                    image={src}
+                    text={"Sankt thomas alle 4"}
+                    price={key} />
+                })}
               </Grid>
             </Grid>
           </Grid>
