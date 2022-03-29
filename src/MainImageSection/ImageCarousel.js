@@ -38,7 +38,7 @@ const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
           {item}
         </LikeIcon2>
       </InfoBox>
-    </div >
+    </div>
   ));
 };
 
@@ -86,7 +86,7 @@ const ImageCarousel = () => {
       setMainIndex(e.item);
     }
   };
-
+  
   return (
     <div>
       <Grid justifyContent="center" alignItems="center">

@@ -7,9 +7,6 @@ const LikedImage = props => {
       <p>
         LikedImages
       </p>
-      <div>
-        {props.item}
-      </div>
     </div>
   )
 }

@@ -1,24 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import LikedImage from '../LikedImage'
-import { ListItem } from '@material-ui/core'
 
-function UseLike(props) {
-  const items = props.item
-  console.log(items[0])
+const UseLike = props => {
+  console.log(props.name)
+  console.log("uselike")
   return (
     <div>
-      <ul>
-        {items.map((item) =>
-          <ListItem value={item} />
-        )}
-      </ul>
+      <p>test</p>
     </div>
   )
-}
-
-UseLike.propTypes = {
-  item: PropTypes.object
 }
 
 export default UseLike
