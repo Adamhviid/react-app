@@ -1,4 +1,5 @@
 import React from 'react'
+import { Grid, Typography } from '@mui/material'
 import PropTypes from 'prop-types'
 
 const WeBrickBoligskøn = props => {
@@ -7,9 +8,15 @@ const WeBrickBoligskøn = props => {
   } = props;
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h3>WeBrick Boligskøn</h3>
-      <h2>{boligskøn}</h2>
+    <div>
+      <Grid>
+        <Typography>
+          WeBrick Boligskøn
+        </Typography>
+        <Typography>
+          {boligskøn}
+        </Typography>
+      </Grid>
     </div>
   )
 }

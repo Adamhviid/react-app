@@ -20,48 +20,42 @@ const houses = [{
   image: <img className="item" src={house} width="100%"></img>,
   address: "sankt thomas alle 1",
   price: "kr 1.000.000 ,-",
-  onMarketDays: "120 days"
+  onMarketDays: "120 dage"
 },
 {
   image: <img className="item" src={bathroom} width="100%"></img>,
   address: "sankt thomas alle 1",
   price: "kr 1.000.000 ,-",
-  onMarketDays: "320 days"
+  onMarketDays: "320 dage"
 },
 {
   image: <img className="item" src={livingroom} width="100%"></img>,
   address: "sankt thomas alle 1",
   price: "kr 1.000.000 ,-",
-  onMarketDays: "131 days"
+  onMarketDays: "131 dage"
 },
 {
   image: <img className="item" src={office} width="100%"></img>,
   address: "sankt thomas alle 1",
   price: "kr 1.000.000 ,-",
-  onMarketDays: "12 days"
+  onMarketDays: "12 dage"
 },
 {
   image: <img className="item" src={tv} width="100%"></img>,
   address: "sankt thomas alle 1",
   price: "kr 1.000.000 ,-",
-  onMarketDays: "1120 days"
+  onMarketDays: "1120 dage"
 }];
 
 const useStyles = makeStyles({
   infoboxHeader: {
     fontWeight: "bold",
-    paddingTop: '2.5rem',
     fontSize: "2.5em",
   },
-  subHeader: {
-    color: '#000',
-    fontSize: '1.2rem'
-  },
-  prices: {
-    color: '#000',
-    fontWeight: 'bold',
-    fontSize: '1.5rem'
-  },
+  centerGridElement: {
+    justifyContent: 'center',
+    textAlign: 'center'
+  }
 })
 
 const PriceTool = () => {
@@ -94,13 +88,14 @@ const PriceTool = () => {
               <Grid item md={12}>
                 <PriceToolIntroduction />
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} className={classes.centerGridElement}>
                 <WeBrickBoligskøn boligskøn={boligskøn} />
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} className={classes.centerGridElement}>
                 <WeBrickBoligskøn boligskøn={boligskøn} />
               </Grid>
-              <Grid item md={12}>
+              <h3>Boligstatstik i kommunen</h3>
+              <Grid item md={12} className={classes.centerGridElement}>
                 <KommuneStatistics
                   numberOfHouses={numberOfHouses}
                   avgSquareMeterPrice={avgSquareMeterPrice}
@@ -109,9 +104,9 @@ const PriceTool = () => {
                 />
               </Grid>
             </Grid>
-            <Grid item md={6}>
+            <Grid item md={6} >
               <h3>Tidligere solgte boliger</h3>
-              <Grid container item md={12}>
+              <Grid container item md={12} className={classes.centerGridElement}>
                 {houses.slice(0, 3).map(function (house) {
                   return <HouseCards
                     image={house.image}
@@ -122,7 +117,7 @@ const PriceTool = () => {
               </Grid>
 
               <h3>Nuværende boliger til salg</h3>
-              <Grid container item md={12}>
+              <Grid container item md={12} className={classes.centerGridElement}>
                 {houses.slice(2, 5).map(function (house) {
                   return <HouseCards
                     image={house.image}

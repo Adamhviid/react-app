@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { Grid, Typography } from '@mui/material'
 
 const useStyle = makeStyles({
+  Grid: {
+  },
   statistic: {
     color: '#FF585D',
     textAlign: 'center',
@@ -28,7 +30,6 @@ const KommuneStatistics = props => {
 
   return (
     <div>
-      <h3>Boligstatstik i kommunen</h3>
       <Grid container spacing={2}>
         <Grid item md={6}>
           <Typography className={classes.statistic}>
@@ -39,6 +40,7 @@ const KommuneStatistics = props => {
           </Typography>
         </Grid>
         <Grid item md={6}>
+
           <Typography className={classes.statistic}>
             {avgSquareMeterPrice}
           </Typography>

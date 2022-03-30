@@ -13,7 +13,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'transparent',
     boxShadow: theme.shadows[3],
     borderRadius: theme.spacing(1),
-    overflow: 'hidden'
+    overflow: 'hidden',
+    textAlign: 'center'
   },
   cardMedia: {
     position: 'relative',
