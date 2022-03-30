@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Grid } from '@mui/material';
+import { Collapse, Grid, Typography } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -9,6 +9,7 @@ import HouseCards from './HouseCards';
 import PriceToolIntroduction from './PriceToolIntroduction';
 import WeBrickBoligskøn from './WeBrickBoligskøn';
 import KommuneStatistics from './KommuneStatistics';
+import PriceToolSliders from './PriceToolSliders';
 
 import house from '../MainImageSection/HouseStockImages/house.jpeg'
 import bathroom from '../MainImageSection/HouseStockImages/bathroom.jpeg'
@@ -52,9 +53,14 @@ const useStyles = makeStyles({
     fontWeight: "bold",
     fontSize: "2.5em",
   },
-  centerGridElement: {
+  centerGridElements: {
     justifyContent: 'center',
-    textAlign: 'center'
+    textAlign: 'center',
+  },
+  subheader: {
+    paddingTop: '20px',
+    paddingBottom: '5px',
+    fontSize: '1.5em'
   }
 })
 
@@ -85,17 +91,28 @@ const PriceTool = () => {
         <InfoBox hasPadding>
           <Grid container spacing={3}>
             <Grid item md={6}>
+              <Typography className={classes.subheader}>
+                Sæt den rigtige pris på din bolig
+              </Typography>
               <Grid item md={12}>
                 <PriceToolIntroduction />
               </Grid>
-              <Grid item xs={12} md={6} className={classes.centerGridElement}>
+              <Grid item xs={12} md={6} className={classes.centerGridElements}>
                 <WeBrickBoligskøn boligskøn={boligskøn} />
               </Grid>
-              <Grid item xs={12} md={6} className={classes.centerGridElement}>
+              <Grid item xs={12} md={6} className={classes.centerGridElements}>
                 <WeBrickBoligskøn boligskøn={boligskøn} />
               </Grid>
-              <h3>Boligstatstik i kommunen</h3>
-              <Grid item md={12} className={classes.centerGridElement}>
+              <Typography className={classes.subheader}>
+                Beregn boligens værdi
+              </Typography>
+              <Grid item md={12}>
+                <PriceToolSliders />
+              </Grid>
+              <Typography className={classes.subheader}>
+                Boligstatstik i kommunen
+              </Typography>
+              <Grid item md={12} className={classes.centerGridElements}>
                 <KommuneStatistics
                   numberOfHouses={numberOfHouses}
                   avgSquareMeterPrice={avgSquareMeterPrice}
@@ -105,8 +122,10 @@ const PriceTool = () => {
               </Grid>
             </Grid>
             <Grid item md={6} >
-              <h3>Tidligere solgte boliger</h3>
-              <Grid container item md={12} className={classes.centerGridElement}>
+              <Typography className={classes.subheader}>
+                Tidligere solgte boliger
+              </Typography>
+              <Grid container item md={12} className={classes.centerGridElements}>
                 {houses.slice(0, 3).map(function (house) {
                   return <HouseCards
                     image={house.image}
@@ -116,8 +135,10 @@ const PriceTool = () => {
                 })}
               </Grid>
 
-              <h3>Nuværende boliger til salg</h3>
-              <Grid container item md={12} className={classes.centerGridElement}>
+              <Typography className={classes.subheader}>
+                Nuværende boliger til salg
+              </Typography>
+              <Grid container item md={12} className={classes.centerGridElements}>
                 {houses.slice(2, 5).map(function (house) {
                   return <HouseCards
                     image={house.image}
