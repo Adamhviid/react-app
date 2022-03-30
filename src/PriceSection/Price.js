@@ -10,10 +10,10 @@ const useStyle = makeStyles({
     paddingTop: '2.5rem',
     fontSize: "2.5em",
   },
-  buttons: {
+  editPriceBtn: {
     background: '#FF585D',
     padding: '5px',
-    color: '#fff',
+    color: '#ffff',
   },
   price: {
     color: '#FF585D',
@@ -54,7 +54,7 @@ function Price() {
           <Button
             variant="contained"
             onClick={() => { setShowDialog(true) }}
-            className={classes.buttons}
+            className={classes.editPriceBtn}
           >
             Ændre pris
           </Button>

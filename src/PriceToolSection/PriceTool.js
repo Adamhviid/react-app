@@ -52,6 +52,10 @@ const useStyles = makeStyles({
   infoboxHeader: {
     fontWeight: "bold",
     fontSize: "2.5em",
+
+    '&:hover': {
+      cursor: 'pointer'
+    }
   },
   centerGridElements: {
     justifyContent: 'center',

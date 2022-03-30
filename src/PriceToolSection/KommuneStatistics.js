@@ -45,7 +45,7 @@ const KommuneStatistics = props => {
             {avgSquareMeterPrice}
           </Typography>
           <Typography classname={classes.statisticSubtitle}>
-            Gennemsnitlig m^2 pris i kommunen
+            Gennemsnitlig m<sup>2</sup> pris i kommunen
           </Typography>
         </Grid>
         <Grid item md={6}>
