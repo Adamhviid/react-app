@@ -58,8 +58,9 @@ const useStyles = makeStyles(theme => ({
 const HouseCards = props => {
   const {
     image,
-    text,
-    price
+    address,
+    price,
+    onMarketDays,
   } = props;
 
   const classes = useStyles();
@@ -80,13 +81,16 @@ const HouseCards = props => {
               line={2}
               element="span"
               truncateText="…"
-              text={text} />
+              text={address} />
           </Typography>
           <Typography
             variant="body1"
             className={classes.price}
           >
             {price}
+          </Typography>
+          <Typography variant="body1">
+            {onMarketDays}
           </Typography>
         </CardContent>
       </Card>

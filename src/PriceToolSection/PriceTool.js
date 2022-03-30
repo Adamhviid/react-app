@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Collapse, Grid, Slider, Typography } from '@mui/material';
+import { Collapse, Grid } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import InfoBox from '../Layout/InfoBox'
 import HouseCards from './HouseCards';
+import PriceToolIntroduction from './PriceToolIntroduction';
+import WeBrickBoligskøn from './WeBrickBoligskøn';
+import KommuneStatistics from './KommuneStatistics';
 
 import house from '../MainImageSection/HouseStockImages/house.jpeg'
 import bathroom from '../MainImageSection/HouseStockImages/bathroom.jpeg'
@@ -13,13 +16,36 @@ import livingroom from '../MainImageSection/HouseStockImages/livingroom.jpeg'
 import office from '../MainImageSection/HouseStockImages/office.jpeg'
 import tv from '../MainImageSection/HouseStockImages/tv.jpeg'
 
-const items = [
-  <img className="item" src={house} width="100%"></img>,
-  <img className="item" src={bathroom} width="100%" ></img>,
-  <img className="item" src={livingroom} width="100%" ></img>,
-  <img className="item" src={office} width="100%" ></img>,
-  <img className="item" src={tv} width="100%" ></img>
-];
+const houses = [{
+  image: <img className="item" src={house} width="100%"></img>,
+  address: "sankt thomas alle 1",
+  price: "kr 1.000.000 ,-",
+  onMarketDays: "120 days"
+},
+{
+  image: <img className="item" src={bathroom} width="100%"></img>,
+  address: "sankt thomas alle 1",
+  price: "kr 1.000.000 ,-",
+  onMarketDays: "320 days"
+},
+{
+  image: <img className="item" src={livingroom} width="100%"></img>,
+  address: "sankt thomas alle 1",
+  price: "kr 1.000.000 ,-",
+  onMarketDays: "131 days"
+},
+{
+  image: <img className="item" src={office} width="100%"></img>,
+  address: "sankt thomas alle 1",
+  price: "kr 1.000.000 ,-",
+  onMarketDays: "12 days"
+},
+{
+  image: <img className="item" src={tv} width="100%"></img>,
+  address: "sankt thomas alle 1",
+  price: "kr 1.000.000 ,-",
+  onMarketDays: "1120 days"
+}];
 
 const useStyles = makeStyles({
   infoboxHeader: {
@@ -47,6 +73,12 @@ const PriceTool = () => {
     setIsOpen((current) => !current);
   };
 
+  const boligskøn = "kr. 2.145.00 ,-"
+  const numberOfHouses = "166"
+  const avgSquareMeterPrice = "50.100 ,-"
+  const avgSaletime = "180 dage"
+  const avgPrisnedslag = "1.59%"
+
   return (
     <div>
       <p className={classes.infoboxHeader} onClick={toggleCollapse}>
@@ -60,27 +92,43 @@ const PriceTool = () => {
           <Grid container spacing={3}>
             <Grid item md={6}>
               <Grid item md={12}>
-                <p>HEJ test</p>
+                <PriceToolIntroduction />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <WeBrickBoligskøn boligskøn={boligskøn} />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <WeBrickBoligskøn boligskøn={boligskøn} />
+              </Grid>
+              <Grid item md={12}>
+                <KommuneStatistics
+                  numberOfHouses={numberOfHouses}
+                  avgSquareMeterPrice={avgSquareMeterPrice}
+                  avgSaletime={avgSaletime}
+                  avgPrisnedslag={avgPrisnedslag}
+                />
               </Grid>
             </Grid>
             <Grid item md={6}>
-              <p>Tidligere solgte boliger</p>
+              <h3>Tidligere solgte boliger</h3>
               <Grid container item md={12}>
-                {items.slice(0, 3).map(function (src, key) {
+                {houses.slice(0, 3).map(function (house) {
                   return <HouseCards
-                    image={src}
-                    text={"Sankt thomas alle 2"}
-                    price={key} />
+                    image={house.image}
+                    address={house.address}
+                    price={house.price}
+                    onMarketDays={"liggetid: " + house.onMarketDays} />
                 })}
               </Grid>
 
-              <p>Nuværende boliger til salg</p>
+              <h3>Nuværende boliger til salg</h3>
               <Grid container item md={12}>
-                {items.slice(2, 5).map(function (src, key) {
+                {houses.slice(2, 5).map(function (house) {
                   return <HouseCards
-                    image={src}
-                    text={"Sankt thomas alle 4"}
-                    price={key} />
+                    image={house.image}
+                    address={house.address}
+                    price={house.price}
+                    onMarketDays={"liggetid: " + house.onMarketDays} />
                 })}
               </Grid>
             </Grid>
