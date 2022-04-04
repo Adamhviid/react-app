@@ -35,7 +35,7 @@ const KommuneStatistics = props => {
           <Typography className={classes.statistic}>
             {numberOfHouses}
           </Typography>
-          <Typography classname={classes.statisticSubtitle}>
+          <Typography className={classes.statisticSubtitle}>
             Bolig til salg i kommunen
           </Typography>
         </Grid>
@@ -44,7 +44,7 @@ const KommuneStatistics = props => {
           <Typography className={classes.statistic}>
             {avgSquareMeterPrice}
           </Typography>
-          <Typography classname={classes.statisticSubtitle}>
+          <Typography className={classes.statisticSubtitle}>
             Gennemsnitlig m<sup>2</sup> pris i kommunen
           </Typography>
         </Grid>
@@ -52,7 +52,7 @@ const KommuneStatistics = props => {
           <Typography className={classes.statistic}>
             {avgSaletime}
           </Typography>
-          <Typography classname={classes.statisticSubtitle}>
+          <Typography className={classes.statisticSubtitle}>
             Gennemsnitlig salgstid i kommunen
           </Typography>
         </Grid>
@@ -60,7 +60,7 @@ const KommuneStatistics = props => {
           <Typography className={classes.statistic}>
             {avgPrisnedslag}
           </Typography>
-          <Typography classname={classes.statisticSubtitle}>
+          <Typography className={classes.statisticSubtitle}>
             Gennemsnitlig prisnedslag i kommunen
           </Typography>
         </Grid>

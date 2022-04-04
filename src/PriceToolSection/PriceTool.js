@@ -21,7 +21,7 @@ import tv from '../MainImageSection/HouseStockImages/tv.jpeg'
 const houses = [{
   image: <img className="item" src={house} width="100%"></img>,
   address: "sankt thomas alle 1",
-  askingPrice: "kr 1.000.000 ,-",
+  askingPrice: "1000000",
   actualprice: "kr 950.00 ,-",
   onMarketDays: "120 dage"
 },
@@ -109,7 +109,7 @@ const PriceTool = () => {
         <InfoBox hasPadding>
           <Grid container spacing={5}>
             <Grid item md={6}>
-              <Typography className={classes.topsubheader}>
+              <Typography gutterBottom className={classes.topsubheader}>
                 Sæt den rigtige pris på din bolig
                 <Tooltip title="Læs mere her :)">
                   <InfoOutlinedIcon className={classes.tooltips} />
@@ -118,7 +118,7 @@ const PriceTool = () => {
               <Grid item md={12}>
                 <PriceToolIntroduction />
               </Grid>
-              <Grid container>
+              <Grid container className={classes.subheader}>
                 <Grid item xs={12} md={6} className={classes.centerGridElements}>
                   <WeBrickBoligskøn boligskøn={boligskøn}/>
                 </Grid>
@@ -126,16 +126,16 @@ const PriceTool = () => {
                   <WeBrickBoligskøn boligskøn={boligskøn} />
                 </Grid>
               </Grid>
-              <Typography className={classes.subheader}>
+              <Typography gutterBottom className={classes.subheader}>
                 Beregn boligens værdi
                 <Tooltip title="Læs mere her :)">
                   <InfoOutlinedIcon className={classes.tooltips} />
                 </Tooltip>
               </Typography>
               <Grid item md={12}>
-                <PriceToolSliders />
+                <PriceToolSliders price={houses[0].askingPrice}/>
               </Grid>
-              <Typography className={classes.subheader}>
+              <Typography gutterBottom className={classes.subheader}>
                 Boligstatstik i kommunen
                 <Tooltip title="Læs mere her :)">
                   <InfoOutlinedIcon className={classes.tooltips} />
@@ -151,7 +151,7 @@ const PriceTool = () => {
               </Grid>
             </Grid>
             <Grid item md={6} >
-              <Typography className={classes.topsubheader}>
+              <Typography gutterBottom className={classes.topsubheader}>
                 Tidligere solgte boliger
                 <Tooltip title="Læs mere her :)">
                   <InfoOutlinedIcon className={classes.tooltips} />
@@ -168,7 +168,7 @@ const PriceTool = () => {
                 })}
               </Grid>
 
-              <Typography className={classes.subheader}>
+              <Typography gutterBottom className={classes.subheader}>
                 Nuværende boliger til salg
                 <Tooltip title="Læs mere her :)">
                   <InfoOutlinedIcon className={classes.tooltips} />
