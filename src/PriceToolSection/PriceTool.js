@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Collapse, Grid, Typography } from '@mui/material';
+import { Collapse, Grid, Typography, Tooltip, tooltipClasses } from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -10,6 +10,7 @@ import PriceToolIntroduction from './PriceToolIntroduction';
 import WeBrickBoligskøn from './WeBrickBoligskøn';
 import KommuneStatistics from './KommuneStatistics';
 import PriceToolSliders from './PriceToolSliders';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 import house from '../MainImageSection/HouseStockImages/house.jpeg'
 import bathroom from '../MainImageSection/HouseStockImages/bathroom.jpeg'
@@ -57,7 +58,6 @@ const useStyles = makeStyles({
   infoboxHeader: {
     fontWeight: "bold",
     fontSize: "2.5em",
-
     '&:hover': {
       cursor: 'pointer'
     }
@@ -66,11 +66,19 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     textAlign: 'center',
   },
-  subheader: {
-    paddingTop: '20px',
+  topsubheader: {
     paddingBottom: '5px',
     fontSize: '1.5em'
-  }
+  },
+  subheader: {
+    paddingTop: '60px',
+    paddingBottom: '5px',
+    fontSize: '1.5em'
+  },
+  tooltips: {
+    color: '#FF585D',
+    paddingLeft: '5px',
+  },
 })
 
 const PriceTool = () => {
@@ -82,6 +90,7 @@ const PriceTool = () => {
     setIsOpen((current) => !current);
   };
 
+  //mockdata
   const boligskøn = "kr. 2.145.00 ,-"
   const numberOfHouses = "166"
   const avgSquareMeterPrice = "50.100 ,-"
@@ -98,28 +107,39 @@ const PriceTool = () => {
       </p>
       <Collapse in={open}>
         <InfoBox hasPadding>
-          <Grid container spacing={3}>
+          <Grid container spacing={5}>
             <Grid item md={6}>
-              <Typography className={classes.subheader}>
+              <Typography className={classes.topsubheader}>
                 Sæt den rigtige pris på din bolig
+                <Tooltip title="Læs mere her :)">
+                  <InfoOutlinedIcon className={classes.tooltips} />
+                </Tooltip>
               </Typography>
               <Grid item md={12}>
                 <PriceToolIntroduction />
               </Grid>
-              <Grid item xs={12} md={6} className={classes.centerGridElements}>
-                <WeBrickBoligskøn boligskøn={boligskøn} />
-              </Grid>
-              <Grid item xs={12} md={6} className={classes.centerGridElements}>
-                <WeBrickBoligskøn boligskøn={boligskøn} />
+              <Grid container>
+                <Grid item xs={12} md={6} className={classes.centerGridElements}>
+                  <WeBrickBoligskøn boligskøn={boligskøn}/>
+                </Grid>
+                <Grid item xs={12} md={6} className={classes.centerGridElements}>
+                  <WeBrickBoligskøn boligskøn={boligskøn} />
+                </Grid>
               </Grid>
               <Typography className={classes.subheader}>
                 Beregn boligens værdi
+                <Tooltip title="Læs mere her :)">
+                  <InfoOutlinedIcon className={classes.tooltips} />
+                </Tooltip>
               </Typography>
               <Grid item md={12}>
                 <PriceToolSliders />
               </Grid>
               <Typography className={classes.subheader}>
                 Boligstatstik i kommunen
+                <Tooltip title="Læs mere her :)">
+                  <InfoOutlinedIcon className={classes.tooltips} />
+                </Tooltip>
               </Typography>
               <Grid item md={12} className={classes.centerGridElements}>
                 <KommuneStatistics
@@ -131,8 +151,11 @@ const PriceTool = () => {
               </Grid>
             </Grid>
             <Grid item md={6} >
-              <Typography className={classes.subheader}>
+              <Typography className={classes.topsubheader}>
                 Tidligere solgte boliger
+                <Tooltip title="Læs mere her :)">
+                  <InfoOutlinedIcon className={classes.tooltips} />
+                </Tooltip>
               </Typography>
               <Grid container item md={12} className={classes.centerGridElements}>
                 {houses.slice(0, 3).map(function (house) {
@@ -147,6 +170,9 @@ const PriceTool = () => {
 
               <Typography className={classes.subheader}>
                 Nuværende boliger til salg
+                <Tooltip title="Læs mere her :)">
+                  <InfoOutlinedIcon className={classes.tooltips} />
+                </Tooltip>
               </Typography>
               <Grid container item md={12} className={classes.centerGridElements}>
                 {houses.slice(2, 5).map(function (house) {
