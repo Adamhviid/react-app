@@ -14,6 +14,9 @@ const useStyle = makeStyles({
     background: '#FF585D',
     padding: '5px',
     color: '#ffff',
+    '&:hover': {
+      background: '#FF585D',
+    }
   },
   price: {
     color: '#FF585D',

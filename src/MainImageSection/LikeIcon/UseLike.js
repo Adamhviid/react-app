@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import LikedImage from '../LikedImage'
 
 const UseLike = props => {
   console.log(props.name)

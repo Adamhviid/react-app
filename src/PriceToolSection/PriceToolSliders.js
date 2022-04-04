@@ -4,13 +4,15 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography, Slider } from '@mui/material'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
-
 const useStyles = makeStyles(theme => ({
   sliderValue: {
     float: 'right'
+  },
+  sliders: {
+    color: '#FF585D',
+    paddingBottom: '20px',
   }
 }))
-
 
 const PriceToolSliders = props => {
   const {
@@ -35,7 +37,8 @@ const PriceToolSliders = props => {
           Tilpas kriterierne herunder for at "lege" og finde den helt rigtige pris
         </Typography>
         <Typography gutterBottom>
-          <InfoOutlinedIcon fontSize="small" style={{ color: '#FF585D' }} /> Din minimums pris
+          <InfoOutlinedIcon fontSize="small" style={{ color: '#FF585D' }} />
+          Din minimums pris
         </Typography>
         <Slider
           value={priceValue}
@@ -43,13 +46,14 @@ const PriceToolSliders = props => {
           max={price * 2}
           valueLabelDisplay="auto"
           onChange={handlePriceChange}
-          style={{ color: '#FF585D' }}
+          className={classes.sliders}
         />
         <Typography className={classes.sliderValue} gutterBottom>
           kr. {priceValue},-
         </Typography>
         <Typography>
-          <InfoOutlinedIcon fontSize="small" style={{ color: '#FF585D' }} /> Din max liggeitd
+          <InfoOutlinedIcon fontSize="small" style={{ color: '#FF585D' }} />
+          Din max liggetid
         </Typography>
         <Slider
           value={liggetidValue}
@@ -57,7 +61,7 @@ const PriceToolSliders = props => {
           max={400}
           valueLabelDisplay="auto"
           onChange={handleLiggetidChange}
-          style={{ color: '#FF585D' }}
+          className={classes.sliders}
         />
         <Typography className={classes.sliderValue} gutterBottom>
           ca. {liggetidValue} dage

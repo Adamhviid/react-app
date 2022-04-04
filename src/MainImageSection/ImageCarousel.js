@@ -4,8 +4,8 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import { Button, Grid } from '@mui/material';
 /* import LikeIcon from './ImageLike/LikeIcon'; */
-import LikeIcon2 from './ImageLike/LikeIcon/LikeIcon2'
-import UseLike from './ImageLike/LikeIcon/UseLike';
+import LikeIcon from './LikeIcon/LikeIcon'
+import UseLike from './LikeIcon/UseLike';
 import InfoBox from '../Layout/InfoBox';
 import LikedImage from './ImageLike/LikedImage';
 
@@ -23,7 +23,10 @@ const useStyle = makeStyles({
   buttons: {
     background: '#FF585D',
     padding: '5px',
-    color: '#fff'
+    color: '#fff',
+    '&:hover': {
+      background: '#FF585D',
+    }
   }
 })
 
@@ -42,14 +45,14 @@ const thumbItems = (items, [setThumbIndex, setThumbAnimation]) => {
       onClick={() => (setThumbIndex(i), setThumbAnimation(true))}
     >
       <InfoBox>
-        <LikeIcon2
+        <LikeIcon
           variant="contained"
           color="secondary"
           onClick={() => (
             <UseLike item={item} />
           )}>
           {item}
-        </LikeIcon2>
+        </LikeIcon>
       </InfoBox>
     </div>
   ));

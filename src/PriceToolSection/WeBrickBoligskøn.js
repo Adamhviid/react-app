@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 const useStyles = makeStyles({
   price: {
     fontSize: '2rem',
+    fontWeight: 'bold'
   }
 })
 

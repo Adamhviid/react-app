@@ -11,6 +11,7 @@ import WeBrickBoligskøn from './WeBrickBoligskøn';
 import KommuneStatistics from './KommuneStatistics';
 import PriceToolSliders from './PriceToolSliders';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import Section from '../Layout/Section/Section';
 
 import house from '../MainImageSection/HouseStockImages/house.jpeg'
 import bathroom from '../MainImageSection/HouseStockImages/bathroom.jpeg'
@@ -120,7 +121,7 @@ const PriceTool = () => {
               </Grid>
               <Grid container className={classes.subheader}>
                 <Grid item xs={12} md={6} className={classes.centerGridElements}>
-                  <WeBrickBoligskøn boligskøn={boligskøn}/>
+                  <WeBrickBoligskøn boligskøn={boligskøn} />
                 </Grid>
                 <Grid item xs={12} md={6} className={classes.centerGridElements}>
                   <WeBrickBoligskøn boligskøn={boligskøn} />
@@ -133,7 +134,7 @@ const PriceTool = () => {
                 </Tooltip>
               </Typography>
               <Grid item md={12}>
-                <PriceToolSliders price={houses[0].askingPrice}/>
+                <PriceToolSliders price={houses[0].askingPrice} />
               </Grid>
               <Typography gutterBottom className={classes.subheader}>
                 Boligstatstik i kommunen
@@ -161,7 +162,7 @@ const PriceTool = () => {
                 {houses.slice(0, 3).map(function (house) {
                   return <HouseCards
                     image={house.image}
-                    address={house.address}
+                    address={null}
                     askingPrice={house.askingPrice}
                     actualprice={house.actualprice}
                     onMarketDays={house.onMarketDays} />

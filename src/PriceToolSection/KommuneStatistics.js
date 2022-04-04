@@ -9,12 +9,13 @@ const useStyle = makeStyles({
   statistic: {
     color: '#FF585D',
     textAlign: 'center',
-    fontSize: '2em',
-    fontWeight: 'bold'
+    fontSize: '2.5em',
+    fontWeight: 'bold',
+    padding: '10px'
   },
   statisticSubtitle: {
     textAlign: 'center',
-    color: '#d3d3d3'
+    color: 'grey'
   },
 })
 
@@ -40,7 +41,6 @@ const KommuneStatistics = props => {
           </Typography>
         </Grid>
         <Grid item md={6}>
-
           <Typography className={classes.statistic}>
             {avgSquareMeterPrice}
           </Typography>

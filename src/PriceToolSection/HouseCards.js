@@ -2,15 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
-import { fontSize } from '@mui/system';
 
 const useStyles = makeStyles(theme => ({
   card: {
     position: 'relative',
     display: 'block',
     width: '210px',
-    height: '260px',
-    marginRight: '30px',
+    height: '245px',
+    margin: '5px',
     backgroundColor: 'transparent',
     boxShadow: theme.shadows[3],
     borderRadius: theme.spacing(1),
@@ -25,6 +24,11 @@ const useStyles = makeStyles(theme => ({
     '& sup': {
       fontSize: '0.5em',
     }
+  },
+  cardMedia: {
+    position: 'relative',
+    borderRadius: theme.spacing(1),
+    overflow: 'hidden'
   },
   price: {
     fontWeight: 'bold'
@@ -46,11 +50,14 @@ const HouseCards = props => {
 
   const classes = useStyles();
 
+  const noAddress = address ? (
+    <Typography >
+      {address}
+    </Typography>
+  ) : null
+
   const notSold = actualprice ? (
-    <Typography
-      variant="body1"
-      className={classes.soldPrice}
-    >
+    <Typography className={classes.soldPrice}>
       solgt til {actualprice}
     </Typography>
   ) : null
@@ -62,17 +69,16 @@ const HouseCards = props => {
           {image}
         </CardMedia>
         <CardContent className={classes.cardContent}>
-          <Typography variant="body1">
-            liggetid: {onMarketDays}
+          <Typography >
+            liggetid: <span style={{ fontWeight: 'bold' }}>{onMarketDays}</span>
           </Typography>
+          {noAddress && (
+            <>
+              {noAddress}
+            </>
+          )}
           <Typography
-            variant="body1"
-            component="h4"
-          >
-            {address}
-          </Typography>
-          <Typography
-            variant="body1"
+            
             className={classes.price}
           >
             udbudt til {askingPrice}
@@ -91,6 +97,7 @@ const HouseCards = props => {
 HouseCards.propTypes = {
   image: PropTypes.element,
   text: PropTypes.string,
+  address: PropTypes.string,
   askingPrice: PropTypes.string,
   actualPrice: PropTypes.string
 }
