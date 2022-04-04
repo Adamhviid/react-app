@@ -20,31 +20,36 @@ import tv from '../MainImageSection/HouseStockImages/tv.jpeg'
 const houses = [{
   image: <img className="item" src={house} width="100%"></img>,
   address: "sankt thomas alle 1",
-  price: "kr 1.000.000 ,-",
+  askingPrice: "kr 1.000.000 ,-",
+  actualprice: "kr 950.00 ,-",
   onMarketDays: "120 dage"
 },
 {
   image: <img className="item" src={bathroom} width="100%"></img>,
   address: "sankt thomas alle 1",
-  price: "kr 1.000.000 ,-",
+  askingPrice: "kr 1.000.000 ,-",
+  actualprice: "kr 950.00 ,-",
   onMarketDays: "320 dage"
 },
 {
   image: <img className="item" src={livingroom} width="100%"></img>,
   address: "sankt thomas alle 1",
-  price: "kr 1.000.000 ,-",
+  askingPrice: "kr 1.000.000 ,-",
+  actualprice: "kr 950.00 ,-",
   onMarketDays: "131 dage"
 },
 {
   image: <img className="item" src={office} width="100%"></img>,
   address: "sankt thomas alle 1",
-  price: "kr 1.000.000 ,-",
+  askingPrice: "kr 1.000.000 ,-",
+  actualprice: "kr 950.00 ,-",
   onMarketDays: "12 dage"
 },
 {
   image: <img className="item" src={tv} width="100%"></img>,
   address: "sankt thomas alle 1",
-  price: "kr 1.000.000 ,-",
+  askingPrice: "kr 1.000.000 ,-",
+  actualprice: "kr 950.00 ,-",
   onMarketDays: "1120 dage"
 }];
 
@@ -134,8 +139,9 @@ const PriceTool = () => {
                   return <HouseCards
                     image={house.image}
                     address={house.address}
-                    price={house.price}
-                    onMarketDays={"liggetid: " + house.onMarketDays} />
+                    askingPrice={house.askingPrice}
+                    actualprice={house.actualprice}
+                    onMarketDays={house.onMarketDays} />
                 })}
               </Grid>
 
@@ -147,8 +153,9 @@ const PriceTool = () => {
                   return <HouseCards
                     image={house.image}
                     address={house.address}
-                    price={house.price}
-                    onMarketDays={"liggetid: " + house.onMarketDays} />
+                    askingPrice={house.askingPrice}
+                    actualprice={null}
+                    onMarketDays={house.onMarketDays} />
                 })}
               </Grid>
             </Grid>

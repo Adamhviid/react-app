@@ -9,14 +9,12 @@ const WeBrickBoligskøn = props => {
 
   return (
     <div>
-      <Grid>
-        <Typography>
-          WeBrick Boligskøn
-        </Typography>
-        <Typography>
-          {boligskøn}
-        </Typography>
-      </Grid>
+      <Typography>
+        WeBrick Boligskøn
+      </Typography>
+      <Typography>
+        {boligskøn}
+      </Typography>
     </div>
   )
 }

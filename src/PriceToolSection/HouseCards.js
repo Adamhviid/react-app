@@ -1,35 +1,21 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardContent, CardMedia, Typography } from '@mui/material'
-import TextTruncate from 'react-text-truncate';
+import { fontSize } from '@mui/system';
 
 const useStyles = makeStyles(theme => ({
   card: {
     position: 'relative',
     display: 'block',
-    width: '100%',
-    height: '100%',
+    width: '210px',
+    height: '260px',
+    marginRight: '30px',
     backgroundColor: 'transparent',
     boxShadow: theme.shadows[3],
     borderRadius: theme.spacing(1),
     overflow: 'hidden',
-    textAlign: 'center'
-  },
-  cardMedia: {
-    position: 'relative',
-    width: '100%',
-    paddingBottom: '50%',
-    borderRadius: theme.spacing(1),
-    overflow: 'hidden'
-  },
-  cardImage: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'cover',
-    position: 'absolute',
-    top: 0,
-    left: 0,
+    textAlign: 'left',
   },
   cardContent: {
     display: 'flex',
@@ -40,19 +26,12 @@ const useStyles = makeStyles(theme => ({
       fontSize: '0.5em',
     }
   },
-  title: {
-    fontWeight: 'bold',
-    marginBottom: theme.spacing(1),
-    marginTop: theme.spacing(1)
-  },
   price: {
     fontWeight: 'bold'
   },
-  card: {
-    width: '200px',
-    height: '250px',
-    padding: '10px',
-    margin: '10px'
+  soldPrice: {
+    fontWeight: 'bold',
+    fontSize: '1.1em'
   }
 }));
 
@@ -60,39 +39,49 @@ const HouseCards = props => {
   const {
     image,
     address,
-    price,
+    askingPrice,
+    actualprice,
     onMarketDays,
   } = props;
 
   const classes = useStyles();
 
+  const notSold = actualprice ? (
+    <Typography
+      variant="body1"
+      className={classes.soldPrice}
+    >
+      solgt til {actualprice}
+    </Typography>
+  ) : null
+
   return (
     <div>
       <Card className={classes.card}>
-        <CardMedia>
+        <CardMedia className={classes.cardMedia}>
           {image}
         </CardMedia>
-        <CardContent>
+        <CardContent className={classes.cardContent}>
+          <Typography variant="body1">
+            liggetid: {onMarketDays}
+          </Typography>
           <Typography
             variant="body1"
             component="h4"
-            className={classes.title}
           >
-            <TextTruncate
-              line={2}
-              element="span"
-              truncateText="…"
-              text={address} />
+            {address}
           </Typography>
           <Typography
             variant="body1"
             className={classes.price}
           >
-            {price}
+            udbudt til {askingPrice}
           </Typography>
-          <Typography variant="body1">
-            {onMarketDays}
-          </Typography>
+          {notSold && (
+            <>
+              {notSold}
+            </>
+          )}
         </CardContent>
       </Card>
     </div>
@@ -102,7 +91,8 @@ const HouseCards = props => {
 HouseCards.propTypes = {
   image: PropTypes.element,
   text: PropTypes.string,
-  price: PropTypes.string
+  askingPrice: PropTypes.string,
+  actualPrice: PropTypes.string
 }
 
 export default HouseCards
